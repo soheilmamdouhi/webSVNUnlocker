@@ -29,7 +29,7 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="txtRepositoryPath" CssClass="col-md-2 control-label">Repository Path</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="txtRepositoryPath" CssClass="form-control" MaxLength="10" />
+                <asp:TextBox runat="server" ID="txtRepositoryPath" CssClass="form-control" MaxLength="500" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="txtRepositoryPath"
                     CssClass="text-danger" ErrorMessage="The code field is required." />
             </div>
