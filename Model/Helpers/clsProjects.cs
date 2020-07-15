@@ -7,6 +7,7 @@ namespace webSVNUnlocker.Model.Helpers
         private String _ID;
         private String _Name;
         private String _Code;
+        private String _RepositoryPath;
 
         public String ID
         {
@@ -59,6 +60,28 @@ namespace webSVNUnlocker.Model.Helpers
                 }
 
                 _Code = strCode;
+            }
+            get
+            {
+                return _Code;
+            }
+        }
+
+        public String RepositoryPath
+        {
+            set
+            {
+                String strRepositoryPath = value.ToString();
+
+                strRepositoryPath = strRepositoryPath.Trim();
+                strRepositoryPath = strRepositoryPath.ToUpper();
+
+                if ((strRepositoryPath.Length == 0) || (strRepositoryPath.Length > clsConstVars.RepositoryPathLength))
+                {
+                    throw new Exception("Project repository path length must be less than " + clsConstVars.RepositoryPathLength.ToString() + " character or you cannot leave repository path empty.");
+                }
+
+                _RepositoryPath = strRepositoryPath;
             }
             get
             {

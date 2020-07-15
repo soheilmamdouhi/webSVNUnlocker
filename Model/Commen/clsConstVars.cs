@@ -18,5 +18,6 @@ namespace webSVNUnlocker.Model.Helpers
         public static int LastNameLength = 50;
         public static int EmailLength = 100;
         public static int PasswordLength = 500;
+        public static int RepositoryPathLength = 500;
     }
 }

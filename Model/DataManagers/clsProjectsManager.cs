@@ -11,7 +11,7 @@ namespace webSVNUnlocker.Model.DataManagers
         {
             try
             {
-                String strSQL = "INSERT INTO PROJECTS (ID, NAME, CODE) VALUES (PROJECTS_SEQ.NEXTVAL, '" + objProjects.Name + "', '" + objProjects.Code + "')";
+                String strSQL = "INSERT INTO PROJECTS (ID, NAME, CODE, REPOSITORYPATH) VALUES (PROJECTS_SEQ.NEXTVAL, '" + objProjects.Name + "', '" + objProjects.Code + "', '" + objProjects.RepositoryPath + ")";
 
                 clsDBMS objDBMS = new clsDBMS();
 

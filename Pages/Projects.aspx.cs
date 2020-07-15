@@ -31,6 +31,7 @@ namespace webSVNUnlocker.Pages
 
                 objProjects.Name = txtName.Text;
                 objProjects.Code = txtCode.Text;
+                objProjects.RepositoryPath = txtRepositoryPath.Text;
 
                 if (!clsProjectsManager.IsDuplicate(objProjects))
                 {
@@ -41,6 +42,7 @@ namespace webSVNUnlocker.Pages
 
                     txtName.Text = "";
                     txtCode.Text = "";
+                    txtRepositoryPath.Text = "";
 
                     ErrorMessage.Text = "New project added.";
                 }
@@ -127,6 +129,7 @@ namespace webSVNUnlocker.Pages
                 lblID.Text = dgridShowData.SelectedRow.Cells[1].Text;
                 txtName.Text = dgridShowData.SelectedRow.Cells[2].Text;
                 txtCode.Text = dgridShowData.SelectedRow.Cells[3].Text;
+                txtRepositoryPath.Text = dgridShowData.SelectedRow.Cells[4].Text;
             }
             catch (Exception ex)
             {

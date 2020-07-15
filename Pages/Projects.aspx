@@ -27,6 +27,14 @@
             </div>
         </div>
         <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="txtRepositoryPath" CssClass="col-md-2 control-label">Repository Path</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="txtRepositoryPath" CssClass="form-control" MaxLength="10" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtRepositoryPath"
+                    CssClass="text-danger" ErrorMessage="The code field is required." />
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <asp:Button runat="server" Text="Insert" CssClass="btn btn-default" ID="btnInsert" Width="180px" OnClick="btnInsert_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
