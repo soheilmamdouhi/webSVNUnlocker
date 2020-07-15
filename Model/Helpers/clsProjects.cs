@@ -74,14 +74,13 @@ namespace webSVNUnlocker.Model.Helpers
                 String strRepositoryPath = value.ToString();
 
                 strRepositoryPath = strRepositoryPath.Trim();
-                strRepositoryPath = strRepositoryPath.ToUpper();
 
                 if ((strRepositoryPath.Length == 0) || (strRepositoryPath.Length > clsConstVars.RepositoryPathLength))
                 {
                     throw new Exception("Project repository path length must be less than " + clsConstVars.RepositoryPathLength.ToString() + " character or you cannot leave repository path empty.");
                 }
 
-                _RepositoryPath = strRepositoryPath;
+                _RepositoryPath = clsPathNormalizer.PathNormalizer(strRepositoryPath); ;
             }
             get
             {
