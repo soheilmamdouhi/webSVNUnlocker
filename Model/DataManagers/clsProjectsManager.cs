@@ -27,7 +27,7 @@ namespace webSVNUnlocker.Model.DataManagers
         {
             try
             {
-                String strSQL = "UPDATE PROJECTS SET NAME = '" + objProjects.Name + "', CODE = '" + objProjects.Code + "' WHERE ID = " + objProjects.ID;
+                String strSQL = "UPDATE PROJECTS SET NAME = '" + objProjects.Name + "', CODE = '" + objProjects.Code + "', REPOSITORYPATH = '" + objProjects.RepositoryPath + "' WHERE ID = " + objProjects.ID;
 
                 clsDBMS objDBMS = new clsDBMS();
 
@@ -151,6 +151,30 @@ namespace webSVNUnlocker.Model.DataManagers
             }
         }
 
-        //public static DataTable 
+        public static Boolean HasAccessToRepository(clsProjects objProjects)
+        {
+            try
+            {
+                String strSQL = "SELECT COUNT(*) FROM PROJECTS WHERE REPOSITORYPATH LIKE '%" + objProjects.RepositoryPath + "%'";
+
+                clsDBMS objDBMS = new clsDBMS();
+                DataTable objIsDuplicate = new DataTable();
+
+                objIsDuplicate = objDBMS.ExecuteSelectSQL(strSQL);
+
+                if (objIsDuplicate.Rows[0][0].ToString() != "0")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(clsUtilities.GetErr(ex.Message.ToString()));
+            }
+        }
     }
 }
